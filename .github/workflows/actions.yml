@@ -23,6 +23,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
 
+      # Install and build project
+      - name: npm install, build
+        run: make install
+
       # Runs a single command using the runners shell
       - name: Run eslint
         run: make lint
