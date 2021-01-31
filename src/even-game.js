@@ -24,28 +24,22 @@ export default () => {
   while (correctAnswers < 3) {
     const randomNumber = getRandomInt(1, 99);
 
-    if (readlineSync.keyInYN(`Question: ${randomNumber}`)) {
-      console.log('Your answer: yes');
+    console.log(`Question: ${randomNumber}`);
 
-      if (isEven(randomNumber)) {
-        console.log('Correct!');
-        correctAnswers += 1;
-      } else {
-        console.log("'yes' is wrong answer ;(. Correct answer was 'no'.");
-        console.log(`Let's try again, ${userName}!`);
-        break;
-      }
+    const answer = readlineSync.question('Your answer: ');
+
+    if ((isEven(randomNumber) && answer.trim() === 'yes')
+    || (!isEven(randomNumber) && answer.trim() !== 'yes')) {
+      console.log('Correct!');
+      correctAnswers += 1;
+    } else if (!isEven(randomNumber) && answer.trim() === 'yes') {
+      console.log("'yes' is wrong answer ;(. Correct answer was 'no'.");
+      console.log(`Let's try again, ${userName}!`);
+      break;
     } else {
-      console.log('Your answer: no');
-
-      if (isEven(randomNumber)) {
-        console.log("'no' is wrong answer ;(. Correct answer was 'yes'.");
-        console.log(`Let's try again, ${userName}!`);
-        break;
-      } else {
-        console.log('Correct!');
-        correctAnswers += 1;
-      }
+      console.log("'no' is wrong answer ;(. Correct answer was 'yes'.");
+      console.log(`Let's try again, ${userName}!`);
+      break;
     }
   }
 
