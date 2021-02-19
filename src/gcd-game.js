@@ -9,8 +9,8 @@ export default () => {
   description('Find the greatest common divisor of given numbers.');
 
   const question = () => {
-    const number1 = getRandomInt(1, 10);
-    const number2 = getRandomInt(1, 10);
+    const number1 = getRandomInt(1, 99);
+    const number2 = getRandomInt(1, 99);
     return `${number1} ${number2}`;
   };
 
