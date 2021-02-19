@@ -12,8 +12,8 @@ export default () => {
     const operations = ['+', '-', '*'];
     const operationId = getRandomInt(0, (operations.length - 1));
     const randomOperation = operations[operationId];
-    const number1 = getRandomInt(0, 15);
-    const number2 = getRandomInt(0, 15);
+    const number1 = getRandomInt(0, 99);
+    const number2 = getRandomInt(0, 99);
     return `${number1} ${randomOperation} ${number2}`;
   };
 
