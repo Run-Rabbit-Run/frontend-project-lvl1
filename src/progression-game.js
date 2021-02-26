@@ -12,7 +12,7 @@ export default () => {
     const startNumber = getRandomInt(1, 99);
     const increment = getRandomInt(1, 99);
     const arrayLength = getRandomInt(5, 10);
-    const missingIndex = getRandomInt(0, arrayLength - 1);
+    const missingIndex = getRandomInt(1, arrayLength - 2);
     const progression = [];
     for (let i = 0; i < arrayLength; i += 1) {
       if (i === 0) {
@@ -27,13 +27,16 @@ export default () => {
 
   const correctAnswer = (condition) => {
     const progression = condition.split(' ');
+    let increment = null;
     for (let i = 0; i < progression.length; i += 1) {
-      const increment = progression[i + 1] - progression[i];
+      increment = progression[i + 1] - progression[i];
       if (!Number.isNaN(increment)) {
-        return increment;
+        break;
       }
     }
-    return 'wtf';
+    const resIndex = progression.indexOf('..');
+    const res = progression[resIndex + 1] - increment;
+    return res;
   };
 
   result(name, question, correctAnswer);
