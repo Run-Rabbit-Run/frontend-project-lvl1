@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* eslint-disable no-console, import/extensions */
 
-import gcdGame from '../src/gcd-game.js';
+import gcdGame from '../src/games/gcd-game.js';
 
 gcdGame();

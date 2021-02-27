@@ -2,7 +2,7 @@
 
 import {
   whatIsYourName, getRandomInt, description, result,
-} from './index.js';
+} from '../index.js';
 
 export default () => {
   const name = whatIsYourName();
